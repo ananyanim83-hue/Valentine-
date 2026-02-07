@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(135deg, #FFF5E4, #FFE5F1);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Righteous', cursive;
+    color: #FF6B9D;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+}
+
+.yes {
+    background: #FF6B9D;
+    color: white;
+}
+
+.no {
+    background: #ddd;
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+/* PHOTO SECTION */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.photo-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.photo-number {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #FF6B9D;
+    margin-bottom: 8px;
+}
+
+.photo-placeholder {
+    background: #FFE5F1;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.photo-content {
+    display: none;
+}
+
+.photo-content img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.caption {
+    margin-top: 10px;
+    color: #5A4A4A;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Will You Be My Valentine, Navraj? 💕</h1>
+<p>Hey Navraj, I have something really special to ask you 🥺💖</p>
+
+<button class="btn yes" onclick="sayYes()">YES 💖</button>
+<button class="btn no" onmouseover="runAway(this)">No 😢</button>
+
+<div id="success" class="hidden">
+    <h2>Yaaay! You said YES 🎉</h2>
+    <p>
+        Navraj, every moment with you is special to me 💕  
+        I can’t wait to make many more memories together.
+    </p>
+    <p><strong>— Geetanjali ❤️</strong></p>
+</div>
+
+<h2>Our Memories 📸</h2>
+<p>Tap each photo to reveal 💖</p>
+
+<div class="photo-grid">
+
+    <!-- PHOTO 1 -->
+    <div class="photo-card" onclick="reveal(this)">
+        <div class="photo-number">Photo 1</div>
+        <div class="photo-placeholder">💖</div>
+        <div class="photo-content">
+            <img src="photo1.jpg" alt="Photo 1">
+            <div class="caption">Our first special moment</div>
+        </div>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="photo-card" onclick="reveal(this)">
+        <div class="photo-number">Photo 2</div>
+        <div class="photo-placeholder">✨</div>
+        <div class="photo-content">
+            <img src="photo2.jpg" alt="Photo 2">
+            <div class="caption">So many laughs together</div>
+        </div>
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="photo-card" onclick="reveal(this)">
+        <div class="photo-number">Photo 3</div>
+        <div class="photo-placeholder">🌸</div>
+        <div class="photo-content">
+            <img src="photo3.jpg" alt="Photo 3">
+            <div class="caption">A memory close to my heart</div>
+        </div>
+    </div>
+
+    <!-- PHOTO 4 -->
+    <div class="photo-card" onclick="reveal(this)">
+        <div class="photo-number">Photo 4</div>
+        <div class="photo-placeholder">💫</div>
+        <div class="photo-content">
+            <img src="photo4.jpg" alt="Photo 4">
+            <div class="caption">One of my favorite days</div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+function sayYes() {
+    document.querySelector('.yes').style.display = 'none';
+    document.querySelector('.no').style.display = 'none';
+    document.getElementById('success').classList.remove('hidden');
+}
+
+function runAway(btn) {
+    btn.style.position = 'absolute';
+    btn.style.left = Math.random() * 80 + '%';
+    btn.style.top = Math.random() * 80 + '%';
+}
+
+function reveal(card) {
+    card.querySelector('.photo-placeholder').style.display = 'none';
+    card.querySelector('.photo-content').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
